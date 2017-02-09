@@ -1,0 +1,87 @@
+body,
+html {
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+}
+
+.recipe {
+  &.active .button {
+    &:after,
+    &:before {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      content: "";
+    }
+
+    &:before {
+      border-top: solid 15px #fff;
+      border-right: solid 15px #fff;
+      border-left: solid 15px transparent;
+      border-bottom: solid 15px transparent;
+    }
+
+    &:after {
+      border-bottom: solid 15px #5b7093;
+      border-left: solid 15px #5b7093;
+      border-right: solid 15px transparent;
+      border-top: solid 15px transparent;
+    }
+  }
+
+  .button {
+    border: none;
+    outline: none;
+    text-align: left;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 1em;
+    position: relative;
+    padding: 30px 0;
+    background-color: #96a5be;
+
+    &:focus,
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.ingredient {
+  padding: .5em 0;
+  border-bottom: 1px solid #ddd;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.newRecipeForm {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    width: 80%;
+    margin-bottom: 1em;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  label {
+    margin-bottom: .5em;
+  }
+
+  button {
+    background: #5b7093;
+    color: #fff;
+    border: 0;
+    padding: .75em;
+  }
+}
