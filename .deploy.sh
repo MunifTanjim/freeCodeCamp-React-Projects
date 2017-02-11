@@ -11,7 +11,7 @@ for project in "${projects}"; do
 done
 
 # include the entry point
-cp index.html build
+cp index.html style.css build
 
 # deploy to surge.sh
 surge -p build -d https://react-projects-fcc-mt.surge.sh

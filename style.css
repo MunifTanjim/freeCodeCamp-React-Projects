@@ -1,0 +1,68 @@
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  margin: 0;
+}
+
+body, header {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  color: #006400;
+}
+
+header {
+  margin-bottom: 2em;
+}
+
+h2 {
+  margin: 0;
+}
+
+a {
+  color: #006400;
+  text-decoration: none;
+  outline: 0;
+}
+
+.logo {
+  margin-bottom: .875em;
+}
+
+.logo img {
+  height: 2.5em;
+  transition: .3s all;
+}
+
+.logo:hover img, .logo:focus img {
+  height: 2.6em;
+}
+
+.title {
+  font-size: 2.5em;
+  margin: 0 0 .4em;
+}
+
+.byline {
+  font-size: 1.5em;
+}
+
+.author:hover, .author:focus {
+  border-bottom: 2px solid #006400;
+}
+
+.project {
+  font-size: 1.5em;
+  margin: 0 0 .5em;
+  padding: .875em;
+  border: .2em solid #006400;
+  transition: .3s all;
+}
+
+.project:hover, .project:focus {
+  background: #006400;
+  color: #fff;
+}
