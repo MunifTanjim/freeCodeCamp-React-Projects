@@ -1,0 +1,77 @@
+html, body, #app {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  min-width: 26.25em;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 1em;
+  background: none;
+  border: 0;
+  font-weight: bold;
+  color: #fff;
+  outline: 0;
+
+  &:focus,
+  &:hover {
+    outline: 1px dotted #fff;
+  }
+}
+
+.app-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-basis: 100%;
+  padding: 1em;
+  overflow: hidden;
+  @media (min-width: 40em) {
+    flex-direction: row;
+  }
+}
+
+.editor {
+  flex-basis: 35%;
+  @media (min-width: 40em) {
+    flex-basis: 40%;
+    max-width: 40%;
+  }
+}
+
+.previewer {
+  flex-basis:  60%;
+  @media (min-width: 40em) {
+    flex-basis: 55%;
+    max-width: 55%;
+  }
+}
+
+.editor,
+.previewer {
+  display: flex;
+  flex-flow: column nowrap;
+
+  h3 {
+    margin: 0 0 1em;
+  }
+
+  &-content {
+    border: 2px solid #E0E0E0;
+    flex-basis: 100%;
+    overflow-y: auto;
+    outline: 0;
+    &:focus,
+    &:hover {
+      border-color: #006400;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
