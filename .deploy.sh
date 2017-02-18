@@ -1,11 +1,12 @@
 #!/usr/bin/env sh
 
 # get paths for projects
-projects=$(find . -maxdepth 2 -name package.json -print0 | xargs -0 -n1 dirname)
+_ROOT="$( cd "$( dirname "${0}" )" && pwd )"
+_PROJECTS="$(find "${_ROOT}" -maxdepth 2 -name package.json -print0 | xargs -0 -n1 dirname)"
 
 # build projects
-for project in "${projects}"; do
-  cd "${project}"
+for PROJECT in ${_PROJECTS}; do
+  cd "${PROJECT}"
   yarn run build
   cd ..
 done
