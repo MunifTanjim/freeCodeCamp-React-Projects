@@ -1,0 +1,174 @@
+html, body, #app {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  min-width: 40.625em;
+  height: 100%;
+  margin: 0;
+  background: #006400;
+}
+
+button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 1em;
+  background: none;
+  border: 0;
+  font-weight: bold;
+  color: #fff;
+  outline: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.app {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100%;
+  margin: auto;
+  color: #fff;
+
+  &.small {
+    & > * {
+      display: flex;
+      width: 40.625em;
+    }
+
+    .board {
+      height: 24.375em;
+    }
+  }
+}
+
+.header {
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  padding: .75em;
+
+  .fcc-logo {
+    height: 2em;
+  }
+
+  .title {
+    margin: .25em 0 0;
+  }
+}
+
+.controlBar {
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  padding: .75em;
+  padding-bottom: 0;
+  background: #2A2A2A;
+
+  & > div {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 2em;
+  }
+}
+
+.control {
+  fill: #fff;
+  width: 2em;
+  height: 100%;
+  padding: 0;
+
+  &:hover,
+  &:focus {
+    fill: #007E00;
+  }
+
+
+  &.more,
+  &.less {
+    fill: #fff;
+  }
+}
+
+.speedControl {
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.boardWrapper {
+  background: #2A2A2A;
+  padding: .75em;
+}
+
+.board {
+  display: flex;
+  flex-flow: row wrap;
+
+  background: #000;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: .75em;
+  height: .75em;
+
+  border-style: solid;
+  border-color: #2A2A2A;
+  border-width: 0 .06125em .06125em 0;
+
+  &.alive > div {
+    background: #00FF00;
+  }
+  &.old > div {
+    background: #006400;
+  }
+
+  & > div {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.footer {
+  flex-flow: row nowrap;
+  justify-content: space-around;
+
+  padding: .75em;
+  padding-top: 0;
+  background: #2A2A2A;
+
+  & > div {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 2em;
+  }
+
+  a {
+
+    &:hover,
+    &:focus {
+      color: #007E00;
+    }
+
+    &.pill {
+      display: block;
+      width: 2em;
+      height: 2em;
+      padding: 0 .25em;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

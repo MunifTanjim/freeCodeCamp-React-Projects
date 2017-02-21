@@ -3,23 +3,19 @@ html, body {
   width: 100%;
   height: 100%;
   font-size: 16px;
+  font-size: 1em;
   margin: 0;
-}
-
-body, header {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
   color: #006400;
 }
 
-header {
-  margin-bottom: 2em;
+h1 {
+  margin: 0 0 .25em;
+  font-size: 2.5em;
 }
 
 h2 {
   margin: 0;
+  font-size: 1.75em;
 }
 
 a {
@@ -28,41 +24,78 @@ a {
   outline: 0;
 }
 
+a:hover, a:focus {
+  border-bottom: 2px solid #006400;
+}
+
+button, .button, a.button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background: none;
+  display: inline-block;
+  font-size: 1em;
+  padding: .5em;
+  border: .2em solid #006400;
+  text-align: center;
+  color: #006400;
+}
+
+button:hover, button:focus, .button:hover, .button:focus {
+  background: #006400;
+  color: #fff;
+}
+
+.wrap {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.header {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 1em;
+  color: #006400;
+}
+
 .logo {
-  margin-bottom: .875em;
+  margin-bottom: .25em;
+}
+
+.logo:hover, .logo:focus, .subtitle:hover, .subtitle:focus {
+  border-bottom: 0;
+}
+
+.logo:focus {
+  outline: 1px dotted #006400;
+  outline-offset: .25em;
 }
 
 .logo img {
   height: 2.5em;
-  transition: .3s all;
-}
-
-.logo:hover img, .logo:focus img {
-  height: 2.6em;
-}
-
-.title {
-  font-size: 2.5em;
-  margin: 0 0 .4em;
 }
 
 .byline {
   font-size: 1.5em;
 }
 
-.author:hover, .author:focus {
-  border-bottom: 2px solid #006400;
+.projects {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.project {
-  font-size: 1.5em;
-  margin: 0 0 .5em;
-  padding: .875em;
-  border: .2em solid #006400;
-  transition: .3s all;
+.projects li {
+  margin: .5em;
 }
 
-.project:hover, .project:focus {
-  background: #006400;
-  color: #fff;
+.projects a {
+  padding: .8em;
+  font-size: 1.25em;
 }
