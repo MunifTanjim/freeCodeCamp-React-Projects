@@ -1,14 +1,86 @@
-body,
-html {
+html, body, #app {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  color: #006400;
+
+  background: #fff;
   margin: 0;
 }
 
-body {
+button, .button {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 16px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+
+  background: #006400;
+  border: 0;
+
+  &:hover, &:focus {
+    outline: #fff double 3px;
+    outline-offset: -4px;
+  }
 }
 
-.recipe {
+a {
+  text-decoration: none;
+}
+
+.app {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: stretch;
+
+  min-height: 100%;
+  padding: .75em;
+  margin: auto;
+
+  & > * {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}
+
+.header {
+  justify-content: center;
+  align-items: center;
+
+  padding: .75em;
+
+  .fcc-logo {
+    height: 2em;
+  }
+
+  .title {
+    margin: .25em 0 0;
+  }
+}
+
+
+.recipeList {
+  align-items: stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.recipeItem {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: .5em 1em;
+
+  .button {
+    position: relative;
+    padding: 30px 0;
+    background: #006400;
+
+    h3 {
+      padding: 0 30px;
+      font-size: 1.5em;
+    }
+  }
+
   &.active .button {
     &:after,
     &:before {
@@ -16,7 +88,7 @@ body {
       position: absolute;
       top: 0;
       right: 0;
-      content: "";
+      content: '';
     }
 
     &:before {
@@ -27,40 +99,80 @@ body {
     }
 
     &:after {
-      border-bottom: solid 15px #5b7093;
-      border-left: solid 15px #5b7093;
+      border-bottom: solid 15px #007E00;
+      border-left: solid 15px #007E00;
       border-right: solid 15px transparent;
       border-top: solid 15px transparent;
     }
   }
+}
 
-  .button {
-    border: none;
-    outline: none;
-    text-align: left;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    font-size: 1em;
-    position: relative;
-    padding: 30px 0;
-    background-color: #96a5be;
+.ingredientListWrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  background: #007E00;
+  color: #fff;
+}
 
-    &:focus,
-    &:hover {
-      color: #fff;
-    }
-  }
+.ingredientList {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  list-style: none;
+  padding: 1em;
+  margin: 0;
 }
 
 .ingredient {
   padding: .5em 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 
   &:last-child {
     border-bottom: 0;
   }
 }
 
-.newRecipeForm {
+.recipePanel {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.recipePanelButton {
+  flex: 1;
+  border-style: solid;
+  border-width: 2px 1px;
+  padding: 0.5em;
+}
+
+.modalCloseButton {
+  width: 4em;
+  height: 4em;
+  border: .4em solid;
+  border-radius: 50%;
+  position: absolute;
+  top: -1em;
+  right: -1em;
+
+  &:hover,
+  &:focus {
+    border: .25em solid;
+    outline: 0;
+  }
+}
+
+.bottomPanel {
+  align-items: center;
+  padding: .75em;
+}
+
+.addRecipeButton {
+  font-size: 1.25em;
+  padding: .75em;
+}
+
+.recipeForm {
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
@@ -68,10 +180,10 @@ body {
   align-items: center;
 
   div {
-    width: 80%;
-    margin-bottom: 1em;
     display: flex;
     flex-flow: column nowrap;
+    width: 80%;
+    margin-bottom: 1em;
   }
 
   label {
@@ -79,9 +191,16 @@ body {
   }
 
   button {
-    background: #5b7093;
-    color: #fff;
-    border: 0;
+    padding: .75em;
+  }
+}
+
+.footer {
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding: 2em 1em 0;
+
+  .button {
     padding: .75em;
   }
 }

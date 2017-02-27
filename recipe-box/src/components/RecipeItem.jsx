@@ -1,18 +1,16 @@
-import React from 'react'
-
-const styles = {
-  RecipeItem: {
-    width: '100%'
-  }
-}
+import React, { PropTypes } from 'react'
 
 const RecipeItem = (props) => (
   <button
     className="button"
-    style={styles.RecipeItem}
     onClick={props.handleClick} >
     {props.children}
   </button>
 )
 
 export default RecipeItem
+
+RecipeItem.propTypes = {
+  children: PropTypes.node.isRequired,
+  handleClick: PropTypes.func.isRequired,
+}

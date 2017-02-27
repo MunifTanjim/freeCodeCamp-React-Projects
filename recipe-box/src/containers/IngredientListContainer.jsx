@@ -1,19 +1,18 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import IngredientList from '../components/IngredientList'
 import RecipePanel from '../components/RecipePanel'
 
-const styles = {
-  IngredientListContainer: {
-    display: 'flex',
-    flexFlow: 'row nowrap',
-    background: '#b5bfd0'
-  }
-}
-
 const IngredientListContainer = React.createClass({
+  propTypes: {
+    data: PropTypes.array.isRequired,
+    handleDelete: PropTypes.func.isRequired,
+    handleUpdate: PropTypes.func.isRequired,
+    index: PropTypes.number.isRequired,
+  },
+
   render: function() {
     return (
-      <div style={styles.IngredientListContainer}>
+      <div className='ingredientListWrapper'>
         <IngredientList
           data={this.props.data} />
         <RecipePanel

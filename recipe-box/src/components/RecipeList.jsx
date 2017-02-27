@@ -2,24 +2,8 @@ import React from 'react'
 import Header from '../components/Header'
 import RecipeItemContainer from '../containers/RecipeItemContainer'
 import Panel from '../components/Panel'
+import Footer from '../components/Footer'
 import dataStore from '../utils/dataStore'
-
-const styles = {
-  Main: {
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    alignItems: 'center'
-  },
-  RecipeList: {
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    alignItems: 'center',
-    width: '100%',
-    listStyle: 'none',
-    margin: 0,
-    padding: 0
-  }
-}
 
 const RecipeList = React.createClass({
   getInitialState: function() {
@@ -27,17 +11,20 @@ const RecipeList = React.createClass({
       dataStore: dataStore
     }
   },
+
   updateLocalStorage: function() {
     localStorage.setItem('_mt_recipebox', JSON.stringify(dataStore))
     this.setState({
       dataStore: dataStore
     })
   },
+
   render: function() {
     return (
-      <main style={styles.Main}>
+      <main className='app'>
         <Header />
-        <ul style={styles.RecipeList}>
+
+        <ul className='recipeList'>
           {this.state.dataStore.map((item, index) => (
             <RecipeItemContainer
               key={index}
@@ -46,7 +33,10 @@ const RecipeList = React.createClass({
               index={index} />
           ))}
         </ul>
+
         <Panel handleUpdate={this.updateLocalStorage}  />
+
+        <Footer />
       </main>
     )
   }

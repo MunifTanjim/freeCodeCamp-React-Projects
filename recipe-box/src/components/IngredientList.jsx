@@ -1,23 +1,15 @@
-import React from 'react'
-
-const styles = {
-  IngredientList: {
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    alignItems: 'center',
-    listStyle: 'none',
-    margin: 0,
-    padding: '1em',
-    width: '80%'
-  }
-}
+import React, { PropTypes } from 'react'
 
 const IngredientList = React.createClass({
+  propTypes: {
+    data: PropTypes.array.isRequired,
+  },
+
   render: function() {
     return (
-      <ul style={styles.IngredientList}>
+      <ul className='ingredientList'>
         {this.props.data.map((item, index) => (
-          <li key={index} className="ingredient">
+          <li key={index} className='ingredient'>
             {item}
           </li>
         ))}

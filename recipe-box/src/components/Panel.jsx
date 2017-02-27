@@ -1,32 +1,28 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import Button from '../components/Button'
 import Modal from '../components/Modal'
-
-const styles = {
-  ModalTriggerButtonOpen: {
-    background: '#5b7093',
-    color: '#fff',
-    border: 0,
-    fontSize: '1.25em',
-    padding: '.75em'
-  }
-}
 
 const Panel = React.createClass({
   getInitialState: function() {
     return {showModal: false}
   },
+
+  propTypes: {
+    handleUpdate: PropTypes.func.isRequired,
+  },
+
   handleModalTrigger: function() {
     this.setState({
       showModal: !this.state.showModal
     })
   },
+
   render: function() {
     return (
-      <section>
+      <section className='bottomPanel'>
         <Button
           label='Add Recipe'
-          style={styles.ModalTriggerButtonOpen}
+          className='addRecipeButton'
           modalAction={this.handleModalTrigger}
           modalTrigger />
         <Modal

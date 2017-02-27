@@ -1,27 +1,6 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import Button from '../components/Button'
 import Modal from '../components/Modal'
-
-const styles = {
-  RecipePanel: {
-    width: '20%',
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    justifyContent: 'space-around'
-  },
-  ButtonDeleteRecipe: {
-    background: '#5b7093',
-    border: 0,
-    padding: '.5em',
-    color: '#fff'
-  },
-  ButtonEditRecipe: {
-    background: '#5b7093',
-    border: 0,
-    padding: '.5em',
-    color: '#fff'
-  }
-}
 
 const RecipePanel = React.createClass({
   getInitialState: function() {
@@ -29,21 +8,29 @@ const RecipePanel = React.createClass({
       showModal: false
     }
   },
+
+  propTypes: {
+    handleDelete: PropTypes.func.isRequired,
+    handleUpdate: PropTypes.func.isRequired,
+    index: PropTypes.number.isRequired,
+  },
+
   handleModalTrigger: function() {
     this.setState({
       showModal: !this.state.showModal
     })
   },
+
   render: function() {
     return (
-      <div style={styles.RecipePanel}>
+      <div className='recipePanel'>
         <Button
           label='Delete'
-          style={styles.ButtonDeleteRecipe}
+          className='recipePanelButton'
           handleClick={this.props.handleDelete} />
         <Button
           label='Edit'
-          style={styles.ButtonEditRecipe}
+          className='recipePanelButton'
           modalAction={this.handleModalTrigger}
           modalTrigger />
         <Modal

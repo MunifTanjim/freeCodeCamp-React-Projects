@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import ReactModal from 'react-modal'
 import Button from '../components/Button'
 import dataStore from '../utils/dataStore'
@@ -6,25 +6,13 @@ import dataStore from '../utils/dataStore'
 const styles = {
   Modal: {
     overlay: {
-      backgroundColor: 'rgba(150, 165, 190, 0.74902)'
+      backgroundColor: 'rgba(0, 100, 0, .4)'
     },
     content: {
       border: 0,
       borderRadius: 0,
       overflow: 'visible'
     }
-  },
-  ModalTriggerButtonClose: {
-    background: '#5b7093',
-    border: 0,
-    color: '#fff',
-    fontWeight: '700',
-    width: '4em',
-    height: '4em',
-    borderRadius: '50%',
-    position: 'absolute',
-    top: '-1em',
-    right: '-1em'
   }
 }
 
@@ -35,16 +23,28 @@ const Modal = React.createClass({
       ingredients: ''
     }
   },
+
+  propTypes: {
+    editing: PropTypes.bool,
+    index: PropTypes.number,
+    modalAction: PropTypes.func.isRequired,
+    handleUpdate: PropTypes.func.isRequired,
+    modalState: PropTypes.bool.isRequired,
+    updateLabel: PropTypes.string.isRequired,
+  },
+
   handleRecipeTitle: function(e) {
     this.setState({
       title: e.target.value
     })
   },
+
   handleRecipeIngredients: function(e) {
     this.setState({
       ingredients: e.target.value
     })
   },
+
   handleSubmit: function(e) {
     e.preventDefault()
     let {title, ingredients} = this.state
@@ -61,6 +61,7 @@ const Modal = React.createClass({
     this.props.modalAction()
     this.props.handleUpdate()
   },
+
   afterOpen: function() {
     if (this.props.editing) {
       let { title, ingredients } = dataStore[this.props.index]
@@ -75,12 +76,14 @@ const Modal = React.createClass({
       })
     }
   },
+
   requestClose: function() {
     this.setState({
       title: '',
       ingredients: ''
     })
   },
+
   render: function() {
     return (
       <ReactModal
@@ -89,31 +92,32 @@ const Modal = React.createClass({
         onRequestClose={this.requestClose}
         contentLabel="New Recipe"
         style={styles.Modal} >
-        <form className='newRecipeForm'>
+        <form className='recipeForm'>
           <div>
-            <label htmlFor='newRecipeName'>
+            <label htmlFor='recipeName'>
               Recipe Name:
             </label>
             {dataStore[this.props.index] ?
               <input
                 type='text'
                 value={this.state.title}
-                id='newRecipeName'
+                id='recipeName'
                 onChange={this.handleRecipeTitle} /> :
               <input
                 type='text'
-                id='newRecipeName'
+                id='recipeName'
+                placeholder='Onion Pie'
                 onChange={this.handleRecipeTitle} />
             }
           </div>
           <div>
-            <label htmlFor='newRecipeIngredients'>
+            <label htmlFor='recipeIngredients'>
               Ingredients (seperated by comma)
             </label>
             <textarea
               type='textarea'
               value={this.state.ingredients}
-              id='newRecipeIngredients'
+              id='recipeIngredients'
               onChange={this.handleRecipeIngredients}
               placeholder='Onion, Pie Curst, Magic'/>
           </div>
@@ -123,7 +127,8 @@ const Modal = React.createClass({
         </form>
         <Button
           label='X'
-          style={styles.ModalTriggerButtonClose} modalAction={this.props.modalAction}
+          className='modalCloseButton'
+          modalAction={this.props.modalAction}
           modalTrigger />
       </ReactModal>
     )
